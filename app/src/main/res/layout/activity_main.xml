@@ -17,12 +17,6 @@
         android:elevation="2dp"
         android:padding="16dp">
 
-        <Spinner
-            android:id="@+id/spFilter"
-            android:layout_width="match_parent"
-            android:layout_height="78dp"
-            android:layout_margin="10dp"
-            android:backgroundTint="@android:color/darker_gray" />
 
         <ListView
             android:id="@+id/lvProducts"
