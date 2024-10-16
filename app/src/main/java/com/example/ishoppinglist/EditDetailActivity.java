@@ -19,7 +19,7 @@ import com.example.ishoppinglist.models.Product;
 public class EditDetailActivity extends AppCompatActivity {
 
     private EditText etProdName, etProdNote;
-    private Switch swProdPend;
+    private Switch swProdPend, swLactosa, swGluten;
     private Button btnCancelEdit, btnSaveEdit;
     private Product productToEdit;
 
@@ -38,6 +38,8 @@ public class EditDetailActivity extends AppCompatActivity {
         etProdName = findViewById(R.id.etProdName);
         etProdNote = findViewById(R.id.etProdNote);
         swProdPend = findViewById(R.id.swProdPend);
+        swLactosa = findViewById(R.id.swLactosa);
+        swGluten = findViewById(R.id.swGluten);
         btnCancelEdit = findViewById(R.id.btnCancelEdit);
         btnSaveEdit = findViewById(R.id.btnSaveEdit);
 
@@ -50,6 +52,8 @@ public class EditDetailActivity extends AppCompatActivity {
             etProdName.setText(productToEdit.getName());
             etProdNote.setText(productToEdit.getNote());
             swProdPend.setChecked(productToEdit.isStatus());
+            swLactosa.setChecked(productToEdit.isLactosa());
+            swGluten.setChecked(productToEdit.isGluten());
         }
 
         // Hago el listener para cuando el user haga click en cancelar edicion
@@ -69,6 +73,8 @@ public class EditDetailActivity extends AppCompatActivity {
                 String prodName = etProdName.getText().toString();
                 String prodNote = etProdNote.getText().toString();
                 boolean prodStatus = swProdPend.isChecked();
+                boolean prodLactosa = swLactosa.isChecked();
+                boolean prodGluten = swGluten.isChecked();
 
                 // En caso de que el nombre este vacio, salta un error
                 if (prodName.isEmpty()) {
@@ -80,6 +86,8 @@ public class EditDetailActivity extends AppCompatActivity {
                 productToEdit.setName(prodName);
                 productToEdit.setNote(prodNote);
                 productToEdit.setStatus(prodStatus);
+                productToEdit.setLactosa(prodLactosa);
+                productToEdit.setGluten(prodGluten);
 
                 // Actualizo la lista de productos principal
                 for (Product product : Database.productList) {
@@ -87,6 +95,8 @@ public class EditDetailActivity extends AppCompatActivity {
                         product.setName(prodName);
                         product.setNote(prodNote);
                         product.setStatus(prodStatus);
+                        product.setLactosa(prodLactosa);
+                        product.setGluten(prodGluten);
                     }
                 }
 

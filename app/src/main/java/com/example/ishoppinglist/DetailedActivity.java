@@ -16,7 +16,7 @@ import com.example.ishoppinglist.models.Product;
 
 public class DetailedActivity extends AppCompatActivity {
 
-    private TextView tvNameDet, tvNoteDet, tvPendDet;
+    private TextView tvNameDet, tvNoteDet, tvPendDet, tvLactosa, tvGluten;
     private Button btnCancel, btnEdit;
 
 
@@ -36,6 +36,8 @@ public class DetailedActivity extends AppCompatActivity {
         tvNameDet = findViewById(R.id.tvNameDet);
         tvNoteDet = findViewById(R.id.tvNoteDet);
         tvPendDet = findViewById(R.id.tvPendDet);
+        tvLactosa = findViewById(R.id.tvLactosa);
+        tvGluten = findViewById(R.id.tvGluten);
         btnCancel = findViewById(R.id.btnCancel);
         btnEdit = findViewById(R.id.btnEdit);
 
@@ -53,6 +55,19 @@ public class DetailedActivity extends AppCompatActivity {
             tvPendDet.setText("No pendiente");
         }
 
+        // NUEVO: Pongo si los producto tienen gluten o no, y lo mismo con lactosa
+
+        if(!p.isLactosa()){
+            tvLactosa.setText("No Lactosa");
+        }else{
+            tvLactosa.setText("Con Lactosa");
+        }
+
+        if(!p.isGluten()){
+            tvGluten.setText("No Gluten");
+        }else{
+            tvGluten.setText("Con Gluten");
+        }
 
         // Hago el listener para cuando el user haga click en cancelar
         btnCancel.setOnClickListener(new View.OnClickListener() {

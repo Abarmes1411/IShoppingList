@@ -1,6 +1,7 @@
 package com.example.ishoppinglist.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.example.ishoppinglist.R;
 import com.example.ishoppinglist.models.Product;
@@ -17,8 +19,11 @@ import java.util.List;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
 
-    private List<Product> products;
 
+
+
+    private List<Product> products;
+    TextView tvNameProd;
     // Constructor que recibe la lista de productos (no pendientes)
     public ProductAdapter(Context context, int resource, List<Product> products) {
         super(context, resource, products);
@@ -44,14 +49,38 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         // Obtengo el producto en la posicion actual del adaptador
         Product product = getItem(position);
 
+
+
+
         // Inflo la vista solo si convertView es null
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_product, parent, false);
         }
 
         // Busco el textview donde se mostrara el nombre del producto
-        TextView tvNameProd = convertView.findViewById(R.id.tvNameProd);
+        tvNameProd = convertView.findViewById(R.id.tvNameProd);
         tvNameProd.setText(product.getName());
+
+
+        // NUEVO: Cambio el color del background dependiendo de si tiene gluten o lactosa
+        if (product.isLactosa() & !product.isGluten())
+        {
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.lactosa));
+
+
+        }
+        else if(product.isGluten() & !product.isLactosa()){
+
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.glucosa));
+        }else if(product.isGluten() & product.isLactosa()) {
+
+
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.both));
+
+
+        }
+
+
 
         // Devuelvo la vista para el producto en la lista
         return convertView;

@@ -48,7 +48,29 @@
             android:id="@+id/swPendStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NO Pendiente"
+            android:text="Pendiente? Sí/No"
+            android:textSize="20sp"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:thumbTint="@android:color/darker_gray"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/swLactosa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lactosa? No/Sí"
+            android:textSize="20sp"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:thumbTint="@android:color/darker_gray"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/swGluten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gluten? No/Sí"
             android:textSize="20sp"
             android:padding="12dp"
             android:layout_marginTop="16dp"

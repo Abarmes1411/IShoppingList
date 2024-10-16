@@ -29,30 +29,40 @@ public class Database extends AppCompatActivity {
             p.setName("Leche Semi-Desnatada");
             p.setNote("La mama ha dicho que hay que comprarlo. URGE.");
             p.setStatus(false);
+            p.setLactosa(false);
+            p.setGluten(false);
 
             Product p2 = new Product();
             p2.setId("231");
             p2.setName("Pan Integral");
             p2.setNote("Comprar el de cereales.");
             p2.setStatus(true);
+            p2.setLactosa(false);
+            p2.setGluten(true);
 
             Product p3 = new Product();
             p3.setId("232");
             p3.setName("Huevos");
             p3.setNote("Preferir los de gallinas camperas.");
             p3.setStatus(false);
+            p3.setLactosa(true);
+            p3.setGluten(false);
 
             Product p4 = new Product();
             p4.setId("233");
             p4.setName("Jabón Líquido");
             p4.setNote("Quedan pocos, comprar una botella de 1L.");
             p4.setStatus(true);
+            p4.setLactosa(true);
+            p4.setGluten(false);
 
             Product p5 = new Product();
             p5.setId("234");
             p5.setName("Papel Higiénico");
             p5.setNote("Solo quedan dos rollos.");
             p5.setStatus(false);
+            p5.setLactosa(true);
+            p5.setGluten(true);
 
             productList.add(p);
             productList.add(p2);

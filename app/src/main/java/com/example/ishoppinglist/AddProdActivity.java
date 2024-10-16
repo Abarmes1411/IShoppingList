@@ -19,7 +19,7 @@ import com.example.ishoppinglist.models.Product;
 public class AddProdActivity extends AppCompatActivity {
 
     private EditText etProdNameAdd, etProdNoteAdd;
-    private Switch swPendStatus;
+    private Switch swPendStatus, swLactosa, swGluten;
     private Button btnSaveAdd, btnCancelAdd;
 
 
@@ -38,6 +38,8 @@ public class AddProdActivity extends AppCompatActivity {
         etProdNameAdd = findViewById(R.id.etProdNameAdd);
         etProdNoteAdd = findViewById(R.id.etProdNoteAdd);
         swPendStatus = findViewById(R.id.swPendStatus);
+        swLactosa = findViewById(R.id.swLactosa);
+        swGluten = findViewById(R.id.swGluten);
         btnSaveAdd = findViewById(R.id.btnSaveAdd);
         btnCancelAdd = findViewById(R.id.btnCancelAdd);
 
@@ -62,6 +64,8 @@ public class AddProdActivity extends AppCompatActivity {
                 String prodName = etProdNameAdd.getText().toString();
                 String prodNote = etProdNoteAdd.getText().toString();
                 boolean prodStatus = swPendStatus.isChecked();
+                boolean prodLactosa = swLactosa.isChecked();
+                boolean prodGluten = swGluten.isChecked();
 
                 // Hago que salte error si no se introduce ningun nombre
                 if(prodName.isEmpty()){
@@ -75,6 +79,8 @@ public class AddProdActivity extends AppCompatActivity {
                 newProduct.setName(prodName);
                 newProduct.setNote(prodNote);
                 newProduct.setStatus(prodStatus);
+                newProduct.setLactosa(prodLactosa);
+                newProduct.setGluten(prodGluten);
 
                 // Lo aniado a la database
                 Database.productList.add(newProduct);

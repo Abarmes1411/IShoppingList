@@ -18,6 +18,8 @@ public class Product implements Serializable {
     private String id;
     private String name;
     private String note;
+    private boolean lactosa;
+    private boolean gluten;
     private boolean status = false;
 
     // Getters y Setters
@@ -54,6 +56,19 @@ public class Product implements Serializable {
     }
 
 
+    public boolean isGluten() {
+        return gluten;
+    }
 
+    public void setGluten(boolean gluten) {
+        this.gluten = gluten;
+    }
 
+    public boolean isLactosa() {
+        return lactosa;
+    }
+
+    public void setLactosa(boolean lactosa) {
+        this.lactosa = lactosa;
+    }
 }
